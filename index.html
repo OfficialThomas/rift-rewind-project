@@ -7,56 +7,53 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <main>
     <!-- LEAGUE DATA LOOKUP SECTION -->
-    <section class="league-lookup">
-        <h3>League Data Lookup</h3>
-        <p>Enter a Riot ID to see their level and top champions!</p>
+<section class="league-lookup">
+    <h3>League Data Lookup</h3>
+    <p>Enter a Riot ID to see their level and top champions!</p>
     
-        <!-- Lookup message container for success/error messages -->
-        <div id="lookup-message" class="lookup-message" style="display: none;"></div>
+    <!-- Lookup message container for success/error messages -->
+    <div id="lookup-message" class="lookup-message" style="display: none;"></div>
     
-        <div class="lookup-form-container">
-            <!-- Riot ID lookup form -->
-            <div class="form-group">
-                <label for="summoner-name">Riot ID</label>
-                <input type="text" id="summoner-name" name="summoner-name" placeholder="GameName#TAG (e.g., Hide on bush#KR1)" required>
-                <small style="color: #687078; display: block; margin-top: 4px;">Format: GameName#TAG</small>
-            </div>
-            <div class="form-group">
-                <label for="region">Region</label>
-                <select id="region" name="region">
-                    <option value="na1">North America</option>
-                    <option value="euw1">Europe West</option>
-                    <option value="eun1">Europe Nordic & East</option>
-                    <option value="kr">Korea</option>
-                    <option value="br1">Brazil</option>
-                    <option value="la1">Latin America North</option>
-                    <option value="la2">Latin America South</option>
-                    <option value="oc1">Oceania</option>
-                    <option value="tr1">Turkey</option>
-                    <option value="ru">Russia</option>
-                    <option value="jp1">Japan</option>
-                </select>
-            </div>
-            <!-- Lookup submit button -->
-            <button type="button" id="lookup-btn" class="lookup-submit-btn">Look Up Summoner</button>
+    <div class="lookup-form-container">
+        <!-- Riot ID lookup form -->
+        <div class="form-group">
+            <label for="summoner-name">Riot ID</label>
+            <input type="text" id="summoner-name" name="summoner-name" placeholder="GameName#TAG (e.g., Hide on bush#KR1)" required>
+            <small style="color: #687078; display: block; margin-top: 4px;">Format: GameName#TAG</small>
         </div>
-
-        <!-- Results display area -->
-        <div id="summoner-results" class="summoner-results" style="display: none;">
-            <h4>Summoner Info</h4>
-            <div id="summoner-info"></div>
-            <div id="champion-mastery"></div>
+        <div class="form-group">
+            <label for="region">Region</label>
+            <select id="region" name="region">
+                <option value="na1">North America</option>
+                <option value="euw1">Europe West</option>
+                <option value="eun1">Europe Nordic & East</option>
+                <option value="kr">Korea</option>
+                <option value="br1">Brazil</option>
+                <option value="la1">Latin America North</option>
+                <option value="la2">Latin America South</option>
+                <option value="oc1">Oceania</option>
+                <option value="tr1">Turkey</option>
+                <option value="ru">Russia</option>
+                <option value="jp1">Japan</option>
+            </select>
         </div>
-    </section>
-    <!-- END LEAGUE DATA LOOKUP SECTION -->
+        <!-- Lookup submit button -->
+        <button type="button" id="lookup-btn" class="lookup-submit-btn">Look Up Summoner</button>
+    </div>
 
-    </main>
+    <!-- Results display area -->
+    <div id="summoner-results" class="summoner-results" style="display: none;">
+        <h4>Summoner Info</h4>
+        <div id="summoner-info"></div>
+        <div id="champion-mastery"></div>
+    </div>
+</section>
+<!-- END LEAGUE DATA LOOKUP SECTION -->
 
-    <script>
+<script>
     // League Data Lookup - Calls Riot API via Lambda
-    const RIOT_API_URL = 'https://m2zwg7zkp3gs636ui3hqyuhsve0bseyz.lambda-url.us-east-2.on.aws/'; // Replace with your Function URL
+    const RIOT_API_URL = 'https://pmxfvv53th6w2gn75x3bzc55pe0jtqmc.lambda-url.us-east-2.on.aws/'; // Replace with your Function URL
     
     document.addEventListener('DOMContentLoaded', function() {
         const lookupBtn = document.getElementById('lookup-btn');
@@ -122,7 +119,7 @@
             }
         });
     });
-
+    
     function displaySummonerData(data) {
         const resultsDiv = document.getElementById('summoner-results');
         const summonerInfo = document.getElementById('summoner-info');
@@ -158,7 +155,7 @@
         
         resultsDiv.style.display = 'block';
     }
-
+    
     function showMessage(text, type) {
         const messageDiv = document.getElementById('lookup-message');
         messageDiv.textContent = text;
@@ -170,7 +167,8 @@
             messageDiv.style.display = 'none';
         }, 10000);
     }
-    </script>
+</script>
+
 
 
     <footer>
